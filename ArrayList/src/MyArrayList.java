@@ -82,7 +82,7 @@ public class MyArrayList<E> implements MyList<E> {
         this.size--;
 
         // cut size of internal array in half, when appropriate
-        if ( this.size * 4 <= this.array.length )
+        if ( this.size * 4 <= this.array.length && this.array.length / 2 >= this.MAX) //added the things after &&
         {
             // ******** YOUR CODE HERE ********
             // create new array which is half the size of old array
@@ -92,6 +92,13 @@ public class MyArrayList<E> implements MyList<E> {
 
             // set new array as ArrayList array (What kind of copy is this?)
             // ******** END YOUR CODE HERE ********
+            Object[] array2 = new Object[this.array.length / 2];
+
+            for ( int jj = 0; jj < this.array.length / 2; jj++ )
+            {
+                array2[jj] = this.array[jj];
+            }
+            this.array = array2;
         }
     }
 }
